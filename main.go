@@ -33,17 +33,17 @@ func main() {
 	currentTime := time.Now().Format("2006-01-02 15:04:05")
 	cmd = exec.Command("git", "commit", "-m", currentTime+" - Auto pushed")
 	stdout, err := cmd.Output()
+	fmt.Println(string(stdout))
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(stdout))
 
 	cmd = exec.Command("git", "push")
 	stdout, err = cmd.Output()
+	fmt.Println(string(stdout))
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(stdout))
 
 	fmt.Println("======================")
 	fmt.Println("Successfully pushed the repos")
